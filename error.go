@@ -23,6 +23,7 @@ type Error struct {
 	Name                     string
 	Err                      error
 	CustomErrorMessageExists bool
+	BadValues                []interface{}
 
 	// Validator indicates the name of the validator that failed
 	Validator string
