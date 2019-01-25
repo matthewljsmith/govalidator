@@ -1034,7 +1034,7 @@ func typeCheck(v reflect.Value, t reflect.StructField, o reflect.Value, options 
 			// pass a pointer to a bad value slice
 			badValues := []interface{}{}
 
-			if result := validatefunc(v.Interface(), o.Interface(), badValues); !result {
+			if result := validatefunc(v.Interface(), o.Interface(), &badValues); !result {
 				if len(validatorStruct.customErrorMessage) > 0 {
 					customTypeErrors = append(customTypeErrors, Error{Name: t.Name, BadValues: badValues, Err: TruncatingErrorf(validatorStruct.customErrorMessage, fmt.Sprint(v), validatorName), CustomErrorMessageExists: true, Validator: stripParams(validatorName)})
 					continue
